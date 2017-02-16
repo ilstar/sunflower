@@ -1,3 +1,5 @@
+const clipboard = require('electron').clipboard
+
 function generatePassword(password, key) {
 	if(password && key){
 		var md5one = $.md5(password,key);
@@ -30,4 +32,14 @@ function generatePassword(password, key) {
 $('#password, #key').on("keyup", function() {
   var pwd = generatePassword($('#password').val(), $('#key').val())
   $('#result').text(pwd);
+})
+
+$('#result').on('click', function() {
+  var $result = $('#result')
+  var resultText = $result.text()
+  clipboard.writeText(resultText)
+  $result.text("Copied!")
+  setTimeout(function() {
+    $result.text(resultText)
+  }, 500)
 })
