@@ -31,18 +31,19 @@ function generatePassword(password, key) {
 
 function copyPassword() {
   var $result = $('#result')
-  var resultText = $result.text()
-  clipboard.writeText(resultText)
+  clipboard.writeText(finalPwd)
   $result.text("Copied!")
   setTimeout(function() {
-    $result.text(resultText)
+    $result.text(finalPwd)
   }, 250)
 }
 
+var finalPwd;
+
 // generate password while typing
 $('#password, #key').on("keyup", function() {
-  var pwd = generatePassword($('#password').val(), $('#key').val())
-  $('#result').text(pwd);
+  finalPwd = generatePassword($('#password').val(), $('#key').val())
+  $('#result').text(finalPwd ? finalPwd : "");
 })
 $("#key").on("keyup", function(event) {
   if (event.keyCode == 13) {
