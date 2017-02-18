@@ -29,6 +29,7 @@ function generatePassword(password, key) {
 	}
 }
 
+// generate password while typing
 $('#password, #key').on("keyup", function() {
   var pwd = generatePassword($('#password').val(), $('#key').val())
   $('#result').text(pwd);
@@ -41,5 +42,5 @@ $('#result').on('click', function() {
   $result.text("Copied!")
   setTimeout(function() {
     $result.text(resultText)
-  }, 500)
+  }, 350)
 })

@@ -2,16 +2,42 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>Sunflower</title>
+    <style>
+      body {
+        background-color: #8aba87;
+        font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,sans-serif;
+      }
+      .main {
+        text-align: center;
+        margin-top: 40px;
+      }
+      input {
+        border: 0;
+        outline: 0;
+        border-bottom: 1px solid #1B924A;
+        border-radius: 1px;
+        font-size: 30px;
+        margin-bottom: 10px;
+        background-color: transparent;
+        color: green;
+      }
+      ::-webkit-input-placeholder { /* Chrome */
+        color: green;
+      }
+      #result {
+        cursor: pointer;
+        font-size: 25px;
+      }
+    </style>
   </head>
   <body>
-    <h1>Hello World!</h1>
-    <div>
-      <div>
-        <input type="password" id="password" name="password"/>
+    <div class="main">
+      <div class="field">
+        <input type="password" id="password" name="password" tabindex="1" placeholder="Password" autofocus/>
       </div>
-      <div>
-        <input type="text" id="key" name="key"/>
+      <div class="field">
+        <input type="text" id="key" name="key" tabindex="2" placeholder="Key"/>
       </div>
       <div id="result">
       </div>
