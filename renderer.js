@@ -29,18 +29,25 @@ function generatePassword(password, key) {
 	}
 }
 
-// generate password while typing
-$('#password, #key').on("keyup", function() {
-  var pwd = generatePassword($('#password').val(), $('#key').val())
-  $('#result').text(pwd);
-})
-
-$('#result').on('click', function() {
+function copyPassword() {
   var $result = $('#result')
   var resultText = $result.text()
   clipboard.writeText(resultText)
   $result.text("Copied!")
   setTimeout(function() {
     $result.text(resultText)
-  }, 350)
+  }, 250)
+}
+
+// generate password while typing
+$('#password, #key').on("keyup", function() {
+  var pwd = generatePassword($('#password').val(), $('#key').val())
+  $('#result').text(pwd);
 })
+$("#key").on("keyup", function(event) {
+  if (event.keyCode == 13) {
+    copyPassword()
+  }
+})
+
+$('#result').on('click', copyPassword)
