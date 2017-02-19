@@ -32,7 +32,7 @@ function createWindow () {
   })
 }
 
-app.dock.setIcon("./sunflower.png")
+app.dock.setIcon(path.join(__dirname, "./sunflower.png"))
 app.setName("Sunflower")
 
 // This method will be called when Electron has finished
