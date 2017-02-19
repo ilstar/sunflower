@@ -34,8 +34,9 @@ function copyPassword() {
   clipboard.writeText(finalPwd)
   $result.text("Copied!")
   setTimeout(function() {
-    $result.text(finalPwd)
-  }, 250)
+    $result.text("")
+    $("#key").val("").focus()
+  }, 450)
 }
 
 var finalPwd;
